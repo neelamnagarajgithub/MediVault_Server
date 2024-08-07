@@ -21,11 +21,6 @@ const MedicalHistorySchema = new Schema({
   medications: [MedicationSchema]
 });
 
-const AllergySchema = new Schema({
-  substance: { type: String, required: true },
-  reaction: { type: String, required: true },
-  severity: { type: String, required: true }
-});
 
 const ImmunizationSchema = new Schema({
   vaccine: { type: String, required: true },
@@ -57,7 +52,7 @@ const PatientSchema = new Schema({
   email: { type: String, required: true, unique: true, validate: [validator.isEmail, "not a valid email"] },
   insurance: InsuranceSchema,
   medical_history: [MedicalHistorySchema],
-  allergies: [AllergySchema],
+  allergies: [String],
   immunizations: [ImmunizationSchema],
   appointments: [AppointmentSchema],
   lab_results: [LabResultSchema],
